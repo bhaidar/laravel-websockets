@@ -44,15 +44,7 @@ groupChannel.here((allUsers) => {
 }).joining((user) => {
     console.log('joining: ', user);
     users.value.push(user);
-}).listenForWhisper('typing', (e) => {
-    console.log('Event typing', e);
-        // if ( e.typing ) {
-        //     $('#who-is').text(e.user.name);
-        //     $('.typing').show();
-        // } else {
-        //     $('.typing').hide();
-        // }
-    }).leaving((user) => {
+}).leaving((user) => {
         users.value = users.value.filter(u => u.id !== user.id);
     }).listen('.group-message-received', (e) => {
         console.log(e);
