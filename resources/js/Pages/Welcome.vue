@@ -17,6 +17,11 @@ defineProps({
         required: true,
     },
 });
+
+window.Echo.channel('pusher-status')
+.listen('PusherStatusTest', (e) => {
+    console.log(e);
+});
 </script>
 
 <template>

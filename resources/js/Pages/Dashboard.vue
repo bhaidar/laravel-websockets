@@ -1,6 +1,11 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
+
+window.Echo.private('App.Models.User.1')
+    .notification((notification) => {
+        console.log(notification);
+    });
 </script>
 
 <template>

@@ -12,17 +12,19 @@ class PusherStatusTest implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public function broadcastOn(): array
+    public function __construct(public string $name)
     {
-        return [
-            new Channel('pusher-status'),
-        ];
     }
 
-    public function broadcastWith(): array
+    public function broadcastOn()
     {
-        return [
-            "Testing Pusher connection from inside Laravel",
-        ];
+        return new Channel('pusher-status');
     }
+
+    // public function broadcastWith(): array
+    // {
+    //     return [
+    //         "Testing Pusher connection from inside Laravel",
+    //     ];
+    // }
 }
